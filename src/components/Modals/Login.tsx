@@ -27,7 +27,7 @@ const Login: React.FC<LoginProps> = () => {
 			if (!newUser) return;
 			router.push("/");
 		} catch (error) {
-			toast.error(error.message, { position: "top-center", autoClose: 3000, theme: "dark" });
+			toast.error((error as Error).message, { position: "top-center", autoClose: 3000, theme: "dark" });
 		}
 	};
 
