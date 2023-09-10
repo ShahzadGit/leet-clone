@@ -127,7 +127,8 @@ function useGetProblems(setLoadingProblems: React.Dispatch<React.SetStateAction<
 			const q = query(collection(firestore, "problems"), orderBy("order", "asc"));
 			const querySnapshot = await getDocs(q);
 			const tmp: DBProblem[] = [];
-			querySnapshot.forEach((doc: { id: any; data: () => DBProblem; }) => {
+			querySnapshot.forEach((doc) => {
+			// querySnapshot.forEach((doc: { id: any; data: () => DBProblem; }) => {
 				tmp.push({ id: doc.id, ...doc.data() } as DBProblem);
 			});
 			setProblems(tmp);
