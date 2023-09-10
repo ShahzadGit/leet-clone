@@ -15,9 +15,9 @@ export const jumpGameHandler = (fn: any) => {
 			assert.equal(result, answers[i]);
 		}
 		return true;
-	} catch (error: any) {
-		console.log("Error from jumpGameHandler: ", error);
-		throw new Error(error);
+	} catch (error) {
+		console.log("Error from jumpGameHandler: ", (error as Error));
+		throw new Error((error as Error).message);
 	}
 };
 

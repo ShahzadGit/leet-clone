@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { DBProblem, Problem } from "../../../utils/types/problem";
 import CircleSkeleton from "../../Skeletons/CircleSkeleton";
 import RectangleSkeleton from "../../Skeletons/RectangleSkeleton";
-
+import Image from "next/image";
 
 type ProblemDescriptionProps = {
 	problem: Problem;
@@ -233,7 +233,8 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem, _solve
 							{problem.examples.map((example, index) => (
 								<div key={example.id}>
 									<p className='font-medium text-white '>Example {index + 1}: </p>
-									{example.img && <img src={example.img} alt='' className='mt-3' />}
+									{/* <Image src='/logo.png' alt='LeetClone' height={200} width={200} /> */}
+									{example.img && <Image src={example.img} alt='' className='mt-3' />}
 									<div className='example-card'>
 										<pre>
 											<strong className='text-white'>Input: </strong> {example.inputText}

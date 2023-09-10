@@ -78,9 +78,9 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 				}
 			}
 		} catch (error) {
-			console.log(error.message);
+			console.log((error as Error).message);
 			if (
-				error.message.startsWith("AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:")
+				(error as Error).message.startsWith("AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:")
 			) {
 				toast.error("Oops! One or more test cases failed", {
 					position: "top-center",
@@ -88,7 +88,7 @@ const Playground: React.FC<PlaygroundProps> = ({ problem, setSuccess, setSolved 
 					theme: "dark",
 				});
 			} else {
-				toast.error(error.message, {
+				toast.error((error as Error).message, {
 					position: "top-center",
 					autoClose: 3000,
 					theme: "dark",
